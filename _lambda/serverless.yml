@@ -1,0 +1,60 @@
+service: TODO
+
+custom:
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules: true
+  billingEnvironment:
+    dev: 'Dev-Test'
+    test: 'Dev-Test'
+    test-auto: 'Dev-Test'
+    stage: 'Dev-Test'
+    preprod: 'PreProduction'
+    prod: 'Production'
+
+# Add serverless plugins
+plugins:
+  localPath: '../.serverless_plugins'
+  modules:
+    - serverless-webpack
+    - serverless-prune-plugin
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+  logs:
+    restApi: true
+
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:region, 'eu-west-1'}
+  stackName: ${self:service}-${self:provider.stage}
+
+  deploymentBucket:
+    name: ${ssm:/bluelab/serverless/deployment-bucket~true}
+
+  memorySize: 128
+
+  stackTags:
+    Service: 'Ninja training'
+    Environment: ${self:custom.billingEnvironment.${self:provider.stage}}
+    'Business Unit': 'Customers'
+    'Major Function': 'Operations'
+    'Cost Centre': '8Z42'
+    'Service Level': Bronze
+    'Work Order': na
+    Creator: devops@bluelab.edfenergy.com
+    'bluelab:source': ssh://git-codecommit.eu-west-1.amazonaws.com/v1/repos/bluelab
+
+  apiGateway:
+    minimumCompressionSize: 1024 # Enable gzip compression for responses > 1 KB
+  environment:
+    AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
+    ENVIRONMENT: ${self:provider.stage}
+    REGION: ${self:provider.region}
+
+functions:
+  skillLambda:
+    handler: src/handler.handler
+    events:
+      - alexaSkill

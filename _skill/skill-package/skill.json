@@ -1,0 +1,36 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-GB": {
+          "summary": "Sample Short Description",
+          "examplePhrases": ["Alexa open hello world", "hello", "help"],
+          "name": "TODO",
+          "description": "Sample Full Description",
+          "smallIconUri": "file://assets/en-US_smallIcon.png",
+          "largeIconUri": "file://assets/en-US_largeIcon.png"
+        }
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "Sample Testing Instructions.",
+      "category": "KNOWLEDGE_AND_TRIVIA",
+      "distributionCountries": []
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "TODO"
+        }
+      }
+    },
+    "manifestVersion": "1.0",
+    "permissions": [],
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "usesPersonalInfo": false,
+      "isChildDirected": false,
+      "isExportCompliant": true,
+      "containsAds": false
+    }
+  }
+}

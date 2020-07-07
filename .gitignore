@@ -1,0 +1,59 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# build/output files
+.build
+.coverage
+.serverless
+.terraform
+.DB_PORT
+bucket
+build
+coverage
+dist
+junit-reports
+out-tsc
+report
+reports
+terraform.tfstate.d
+terraform.tfstate*.backup
+test_orders.json
+tmp
+
+# packages or dependencies
+jspm_packages
+node_modules
+
+# editors
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/settings.json.default
+!.vscode/tasks.json
+.c9/
+.classpath
+.idea
+.project
+.settings/
+.vscode/*
+*.launch
+*.sublime-workspace
+
+# caches, logs and lock files
+__pycache__
+.mypy_cache
+.sass-cache
+.pytest_cache
+connect.lock
+libpeerconnection.log
+npm-debug.log
+testem.log
+typings
+yarn-error.log
+
+# secrets
+.env
+
+# system files
+.DS_Store
+Thumbs.db
+
+**/.nyc_output/**/*
