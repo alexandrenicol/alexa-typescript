@@ -14,8 +14,7 @@
     "url": "https://github.com/alexandrenicol/alexa-typescript/issues"
   },
   "homepage": "https://github.com/alexandrenicol/alexa-typescript#readme",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.7.0",
     "@typescript-eslint/parser": "^4.7.0",
